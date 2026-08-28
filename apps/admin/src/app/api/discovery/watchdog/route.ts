@@ -1,3 +1,4 @@
+// apps/admin/src/app/api/discovery/watchdog/route.ts - Purpose: mDNS-discover the first watchdog and settle on up, timeout, or error
 import { NextRequest, NextResponse } from "next/server";
 import Bonjour, { Service } from "bonjour-service";
 
@@ -107,10 +108,10 @@ function toResponse(service: Service): DiscoveryResponse | null {
 
 function discoverFirstWatchdog(timeoutMs: number): Promise<DiscoveryResponse> {
   return new Promise((resolve) => {
-    const bonjour = new Bonjour();
     let settled = false;
     let timer: ReturnType<typeof setTimeout> | null = null;
-    const browser = bonjour.find({ type: "watchdog", protocol: "udp" });
+    let bonjour: Bonjour | null = null;
+    let browser: ReturnType<Bonjour["find"]> | null = null;
 
     const finish = (payload: DiscoveryResponse) => {
       if (settled) return;
@@ -121,21 +122,37 @@ function discoverFirstWatchdog(timeoutMs: number): Promise<DiscoveryResponse> {
       }
 
       try {
-        browser.stop();
+        browser?.stop();
       } catch {
         // Ignore stop failures.
       }
 
-      bonjour.destroy(() => {
+      if (bonjour) {
+        bonjour.destroy(() => {
+          resolve(payload);
+        });
+      } else {
         resolve(payload);
-      });
+      }
     };
+
+    // Default Bonjour errorCallback rethrows; settle the request instead.
+    bonjour = new Bonjour(undefined, () => {
+      finish({ ok: false, found: false });
+    });
+    browser = bonjour.find({ type: "watchdog", protocol: "udp" });
 
     browser.on("up", (service: Service) => {
       const mapped = toResponse(service);
       if (mapped) {
         finish(mapped);
       }
+    });
+
+    // BrowserEvents omits "error"; listen via EventEmitter so mDNS failures
+    // cannot become unhandled EventEmitter exceptions.
+    (browser as NodeJS.EventEmitter).on("error", () => {
+      finish({ ok: false, found: false });
     });
 
     timer = setTimeout(() => {

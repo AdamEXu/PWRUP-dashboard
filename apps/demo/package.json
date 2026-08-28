@@ -2,6 +2,9 @@
   "name": "@pwrup/demo",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "description": "PWRUP Robot Showcase — Yo, Gurt!",
   "scripts": {
     "dev": "NODE_OPTIONS='--no-experimental-webstorage' next dev --port 3002",

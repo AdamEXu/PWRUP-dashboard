@@ -1,4 +1,4 @@
-// src/components/ui/Charts.tsx - Purpose: reusable, minimal visualizations for CPU, processes, and network
+// packages/shared-ui/src/Charts.tsx - Purpose: reusable, minimal visualizations for CPU, processes, and network
 import {
   BarChart,
   Bar,
@@ -143,7 +143,7 @@ export function ProcessChart({ processes, className = "" }: ProcessChartProps) {
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={data}
-          layout="horizontal"
+          layout="vertical"
           margin={{ top: 5, right: 5, left: 40, bottom: 5 }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
@@ -167,9 +167,9 @@ export function ProcessChart({ processes, className = "" }: ProcessChartProps) {
               borderRadius: "6px",
               color: "#f3f4f6",
             }}
-            formatter={(value, name, props) => [
+            formatter={(value, _name, item) => [
               `${value}% CPU`,
-              `${props.payload.name} (PID: ${props.payload.pid})`,
+              `${item.payload?.name ?? _name} (PID: ${item.payload?.pid ?? "?"})`,
             ]}
           />
           <Bar dataKey="usage" radius={[0, 2, 2, 0]} />

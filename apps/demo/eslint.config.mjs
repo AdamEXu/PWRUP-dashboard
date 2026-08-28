@@ -1,4 +1,4 @@
-// apps/admin/eslint.config.mjs
+// apps/demo/eslint.config.mjs
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
@@ -8,9 +8,8 @@ const eslintConfig = defineConfig([
   ...nextTs,
   {
     rules: {
-      // Next 16 ships React Compiler lint rules that error on existing HUD/dashboard
-      // patterns (setState in effects, Date.now in render, ref access). Keep them as
-      // warnings so the CLI matches the previous next lint bar without a rewrite.
+      // Next 16 ships React Compiler lint rules that error on existing 3D viewer
+      // patterns. Keep them as warnings so the CLI matches the previous next lint bar.
       "react-hooks/set-state-in-effect": "warn",
       "react-hooks/purity": "warn",
       "react-hooks/refs": "warn",
@@ -21,8 +20,6 @@ const eslintConfig = defineConfig([
     ".next/**",
     "out/**",
     "build/**",
-    "dist-electron-admin/**",
-    "electron/**",
     "next-env.d.ts",
   ]),
 ]);

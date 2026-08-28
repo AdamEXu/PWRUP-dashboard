@@ -1,5 +1,10 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Requirements
+
+- **Node.js >= 22.12.0** (Electron 44 and concurrently 10 require this baseline; `pnpm` with `engine-strict` will fail on older versions)
+- pnpm workspace (`pnpm-lock.yaml`)
+
 ## Getting Started
 
 First, run the development server:

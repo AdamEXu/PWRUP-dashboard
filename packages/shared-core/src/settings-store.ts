@@ -8,7 +8,7 @@ import type {
   SharedSettingsPayload,
   VisualSettings,
 } from "./settings-schema";
-import { DEFAULTS, DEFAULT_HUD_VISIBILITY, DEFAULT_MAP_SETTINGS, DEFAULT_VISUAL_SETTINGS } from "./settings-schema";
+import { DEFAULTS, DEFAULT_HUD_VISIBILITY, DEFAULT_MAP_SETTINGS, DEFAULT_VISUAL_SETTINGS, normalizeReconnectTimeoutSeconds } from "./settings-schema";
 
 function getSharedSettingsPath(): string {
   const fromEnv = process.env.PWRUP_SHARED_SETTINGS_PATH?.trim();
@@ -50,6 +50,7 @@ function normalizeSettings(next: Partial<ConnectionSettings>): ConnectionSetting
   return {
     host,
     port,
+    reconnectTimeoutSeconds: normalizeReconnectTimeoutSeconds(next.reconnectTimeoutSeconds),
     networkTables: {
       host: ntHost,
       port: ntPort,

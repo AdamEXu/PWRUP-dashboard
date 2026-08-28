@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.1.0",
   "description": "PWRUP admin + comp workspace",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev:admin": "pnpm --filter @pwrup/admin dev",
     "dev:comp": "pnpm --filter @pwrup/comp dev",

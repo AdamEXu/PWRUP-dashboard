@@ -15,7 +15,7 @@ export function DriveTab() {
         lineHeight: 1.65,
         color: "var(--text-2)",
       }}>
-        Swerve lets us translate in any direction while rotating freely. Field-relative control means the driver pushes toward the goal and the robot goes there — regardless of which way it's facing.
+        Swerve lets us translate in any direction while rotating freely. Field-relative control means the driver pushes toward the goal and the robot goes there — regardless of which way it is facing.
       </p>
     </div>
   );

@@ -1,3 +1,4 @@
+// packages/shared-core/src/settings-schema.ts
 export interface NetworkTablesSettings {
   host: string;
   port: number;
@@ -8,6 +9,7 @@ export interface NetworkTablesSettings {
 export interface ConnectionSettings {
   host: string;
   port: number;
+  reconnectTimeoutSeconds: number;
   networkTables: NetworkTablesSettings;
 }
 
@@ -43,6 +45,7 @@ export interface SharedSettingsPayload {
 export const DEFAULTS: ConnectionSettings = {
   host: "10.47.65.7",
   port: 8080,
+  reconnectTimeoutSeconds: 10,
   networkTables: {
     host: "10.47.65.2",
     port: 5810,
@@ -50,6 +53,18 @@ export const DEFAULTS: ConnectionSettings = {
     selectedPathTopic: "PathPlanner/SelectedPath",
   },
 };
+
+export function normalizeReconnectTimeoutSeconds(value: unknown): number {
+  if (
+    typeof value === "number" &&
+    Number.isFinite(value) &&
+    value >= 2 &&
+    value <= 60
+  ) {
+    return Math.round(value);
+  }
+  return DEFAULTS.reconnectTimeoutSeconds;
+}
 
 export const DEFAULT_HUD_VISIBILITY: HudVisibilitySettings = {
   showMap: true,

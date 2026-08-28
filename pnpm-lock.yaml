@@ -361,6 +361,10 @@ importers:
       react:
         specifier: ^19.2.8
         version: 19.2.8
+    devDependencies:
+      '@types/react':
+        specifier: ^19.2.18
+        version: 19.2.18
 
   packages/shared-proto:
     dependencies:
@@ -424,6 +428,13 @@ importers:
       tailwind-merge:
         specifier: ^3.6.0
         version: 3.6.0
+    devDependencies:
+      '@types/react':
+        specifier: ^19.2.18
+        version: 19.2.18
+      '@types/react-dom':
+        specifier: ^19.2.5
+        version: 19.2.5(@types/react@19.2.18)
 
 packages:
 

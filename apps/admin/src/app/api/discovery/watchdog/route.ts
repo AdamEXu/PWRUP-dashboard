@@ -138,10 +138,6 @@ function discoverFirstWatchdog(timeoutMs: number): Promise<DiscoveryResponse> {
       }
     });
 
-    browser.on("error", () => {
-      finish({ ok: false, found: false });
-    });
-
     timer = setTimeout(() => {
       finish({ ok: true, found: false });
     }, timeoutMs);

@@ -1,3 +1,4 @@
+// packages/shared-ui/src/connection-settings-form.tsx
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -26,9 +27,9 @@ interface ConnectionSettingsLike {
   networkTables: NetworkTablesSettingsLike;
 }
 
-interface ConnectionSettingsFormProps {
-  settings: ConnectionSettingsLike;
-  setSettings: (next: ConnectionSettingsLike) => void;
+interface ConnectionSettingsFormProps<T extends ConnectionSettingsLike> {
+  settings: T;
+  setSettings: (next: T) => void;
   resetDefaults: () => void;
   mode?: "default" | "touchscreen";
   className?: string;
@@ -52,13 +53,13 @@ function ntSelectedPathTopics(table: string, selectedPathTopic: string) {
   };
 }
 
-export function ConnectionSettingsForm({
+export function ConnectionSettingsForm<T extends ConnectionSettingsLike>({
   settings,
   setSettings,
   resetDefaults,
   mode = "default",
   className,
-}: ConnectionSettingsFormProps) {
+}: ConnectionSettingsFormProps<T>) {
   const [host, setHost] = useState(settings.host);
   const [port, setPort] = useState<number>(settings.port);
   const [ntHost, setNtHost] = useState<string>(settings.networkTables.host);
@@ -136,6 +137,7 @@ export function ConnectionSettingsForm({
     }
 
     setSettings({
+      ...settings,
       host: nextHost,
       port: Math.round(nextPort),
       networkTables: {

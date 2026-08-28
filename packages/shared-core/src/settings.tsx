@@ -15,6 +15,7 @@ import {
   DEFAULT_MAP_SETTINGS,
   DEFAULT_VISUAL_SETTINGS,
   normalizeRenderScale,
+  normalizeReconnectTimeoutSeconds,
   frcTeamToRobotIp,
   ntPathFromTableAndEntry,
   ntSelectedPathTopics,
@@ -136,6 +137,7 @@ function normalizeSettings(parsed: Partial<ConnectionSettings>): ConnectionSetti
       typeof parsed.port === "number" && Number.isFinite(parsed.port) && parsed.port > 0 && parsed.port <= 65535
         ? Math.round(parsed.port)
         : DEFAULTS.port,
+    reconnectTimeoutSeconds: normalizeReconnectTimeoutSeconds(parsed.reconnectTimeoutSeconds),
     networkTables: {
       host: migratedHostFromTeam,
       port: nextNtPort,

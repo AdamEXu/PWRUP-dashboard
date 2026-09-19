@@ -8,3 +8,7 @@ onlyBuiltDependencies:
   - protobufjs
   - sharp
   - unrs-resolver
+
+# Keep Zod 4 on 4.6.2; 4.6.3+ is too fresh for this bump.
+overrides:
+  zod@^4.0.0: 4.6.2

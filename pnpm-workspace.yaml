@@ -9,6 +9,6 @@ onlyBuiltDependencies:
   - sharp
   - unrs-resolver
 
-# Keep Zod 4 on 4.6.4; 4.6.5 is too fresh for this bump.
+# Pin Zod 4 to 4.6.5 (supply-chain aged ≥7d as of 2026-09-21).
 overrides:
-  zod@^4.0.0: 4.6.4
+  zod@^4.0.0: 4.6.5

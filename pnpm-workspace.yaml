@@ -10,10 +10,10 @@ onlyBuiltDependencies:
   - unrs-resolver
 
 # Pin Zod 4 to 4.6.5 (supply-chain aged ≥7d as of 2026-09-21).
-# Pin electron 44.4.3 and @types/node 22.20.4; hold 44.4.4+ and @types/node 26.
-# Pin lucide-react 1.47.0; hold 1.48.0+.
+# Pin electron 44.5.1 and @types/node 22.20.4; hold electron 45 alphas and @types/node 26.
+# Pin lucide-react 1.49.0; hold 1.50.0.
 overrides:
   zod@^4.0.0: 4.6.5
-  electron: 44.4.3
+  electron: 44.5.1
   "@types/node@^22.20.4": 22.20.4
-  lucide-react: 1.47.0
+  lucide-react: 1.49.0

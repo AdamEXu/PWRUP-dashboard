@@ -11,9 +11,9 @@ onlyBuiltDependencies:
 
 # Pin Zod 4 to 4.6.5 (supply-chain aged ≥7d as of 2026-09-21).
 # Pin electron 44.5.1 and @types/node 22.20.4; hold electron 45 alphas and @types/node 26.
-# Pin lucide-react 1.49.0; hold 1.50.0.
+# Pin lucide-react 1.50.0; hold 1.51+.
 overrides:
   zod@^4.0.0: 4.6.5
   electron: 44.5.1
   "@types/node@^22.20.4": 22.20.4
-  lucide-react: 1.49.0
+  lucide-react: 1.50.0

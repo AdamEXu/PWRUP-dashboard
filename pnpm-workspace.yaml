@@ -9,11 +9,25 @@ onlyBuiltDependencies:
   - sharp
   - unrs-resolver
 
-# Pin Zod 4 to 4.6.5 (supply-chain aged ≥7d as of 2026-09-21).
-# Pin electron 44.7.0 and @types/node 22.20.4; hold electron 44.7.2+ / 44.8+ / 45 alphas and @types/node 26.
+# Pin Zod 4 to 4.6.6 (supply-chain aged ≥7d as of 2026-10-18 PT). Hold 4.6.7 (too fresh).
+# Pin electron 44.7.0 and @types/node 22.20.5; hold electron ≥44.7.1 / 44.8+ / 45 alphas and @types/node 26.
 # Pin lucide-react 1.55.0; hold 1.56+.
+# Pin Radix UI, protobufjs, and concurrently to 2026-10-18 PT vetted versions.
 overrides:
-  zod@^4.0.0: 4.6.5
+  zod@^4.0.0: 4.6.6
   electron: 44.7.0
-  "@types/node@^22.20.4": 22.20.4
+  "@types/node@^22.20.5": 22.20.5
   lucide-react: 1.55.0
+  "@radix-ui/react-collapsible": 1.1.21
+  "@radix-ui/react-dialog": 1.2.0
+  "@radix-ui/react-dropdown-menu": 2.1.25
+  "@radix-ui/react-label": 2.1.16
+  "@radix-ui/react-scroll-area": 1.3.0
+  "@radix-ui/react-separator": 1.1.16
+  "@radix-ui/react-slider": 1.5.0
+  "@radix-ui/react-slot": 1.4.0
+  "@radix-ui/react-switch": 1.3.8
+  "@radix-ui/react-tabs": 1.1.22
+  "@radix-ui/react-tooltip": 1.3.0
+  protobufjs: 8.8.1
+  concurrently: 10.0.6

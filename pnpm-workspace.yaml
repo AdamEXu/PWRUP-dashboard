@@ -9,13 +9,15 @@ onlyBuiltDependencies:
   - sharp
   - unrs-resolver
 
-# Pin Zod 4 to 4.6.6 (supply-chain aged ≥7d as of 2026-10-18 PT). Hold 4.6.7 (too fresh).
+# Pin every Zod copy to 4.6.7 (GHSA-mrhx-c7xc-m3w5 / CVE-2023-54404). 4.6.6 is the
+# first patched 4.x; there is no patched 3.x. Force ntcore-ts-client's zod ^3.24.3
+# onto 4.6.7 as well so no 3.x remains in the tree.
 # Pin electron 44.7.0 and @types/node 22.20.5; hold electron ≥44.7.1 / 44.8+ / 45 alphas and @types/node 26.
 # Pin lucide-react 1.55.0; hold 1.56+.
 # Pin Radix UI, protobufjs, and concurrently to 2026-10-18 PT vetted versions.
 # Next.js 16.4.2 (CVE-2026-96889) requires sharp >=0.35.5 in the image optimizer.
 overrides:
-  zod@^4.0.0: 4.6.6
+  zod: 4.6.7
   electron: 44.7.0
   "@types/node@^22.20.5": 22.20.5
   lucide-react: 1.55.0

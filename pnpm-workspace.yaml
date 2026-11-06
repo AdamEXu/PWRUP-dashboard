@@ -16,7 +16,7 @@ onlyBuiltDependencies:
 # Pin lucide-react 1.63.0; hold newer lucide than this vetted release.
 # Pin Radix UI, protobufjs, and concurrently to vetted versions (do not float past these).
 # Pin @react-three/fiber 9.8.1; 9.8.2 was hand-published without provenance.
-# Next.js 16.4.3 (CVE-2026-96889 floor is 16.4.2) requires sharp >=0.35.5 in the image optimizer.
+# Next.js 16.4.5 (Nov 2026 GHSA-mfr8-8qww-v76h; CVE-2026-96889 floor is 16.4.2) requires sharp >=0.35.5 in the image optimizer.
 overrides:
   zod: 4.6.7
   electron: 44.10.0
@@ -37,4 +37,4 @@ overrides:
   protobufjs: 8.8.1
   concurrently: 10.0.6
   sharp: ">=0.35.5"
-  next: 16.4.3
+  next: 16.4.5

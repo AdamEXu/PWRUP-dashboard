@@ -6,7 +6,7 @@ settings:
 
 overrides:
   zod: 4.6.7
-  electron: 44.10.0
+  electron: 45.3.0
   '@types/node@^22.20.5': 22.20.5
   lucide-react: 1.63.0
   '@radix-ui/react-collapsible': 1.2.1
@@ -133,8 +133,8 @@ importers:
         specifier: ^10.1.0
         version: 10.1.0
       electron:
-        specifier: 44.10.0
-        version: 44.10.0
+        specifier: 45.3.0
+        version: 45.3.0
       electron-builder:
         specifier: 26.18.1
         version: 26.18.1(electron-builder-squirrel-windows@26.18.1)
@@ -290,8 +290,8 @@ importers:
         specifier: ^10.1.0
         version: 10.1.0
       electron:
-        specifier: 44.10.0
-        version: 44.10.0
+        specifier: 45.3.0
+        version: 45.3.0
       electron-builder:
         specifier: 26.18.1
         version: 26.18.1(electron-builder-squirrel-windows@26.18.1)
@@ -2387,8 +2387,8 @@ packages:
     resolution: {integrity: sha512-bO3y10YikuUwUuDUQRM4KfwNkKhnpVO7IPdbsrejwN9/AABJzzTQ4GeHwyzNSrVO+tEH3/Np255a3sVZpZDjvg==}
     engines: {node: '>=8.0.0'}
 
-  electron@44.10.0:
-    resolution: {integrity: sha512-ss4pCfrQKV4TWkuVYtWB4HmeysPZgB96cSYNKYZv1UVCRP4vQMGNW5oopFbvx6Bbfce1XtP5pm5RDuKehp0svQ==}
+  electron@45.3.0:
+    resolution: {integrity: sha512-JpSzTaZkNaai4B3pUSICIfXiKwl+a7XyvHpWmA3O7SZbWDXNgYSyc7cmhNhlAARMzNAh9nOdZq5DgTZ/T9rlfA==}
     engines: {node: '>= 22.12.0'}
     hasBin: true
 
@@ -6474,7 +6474,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  electron@44.10.0:
+  electron@45.3.0:
     dependencies:
       '@electron-internal/extract-zip': 1.0.5
       '@electron/get': 5.1.0
